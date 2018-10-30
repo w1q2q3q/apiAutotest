@@ -17,7 +17,6 @@ public class UserController {
     UserService userService;
     @RequestMapping("/")
     public List<Person> login() {
-
         return userService.selectAllUser();
     }
 }
