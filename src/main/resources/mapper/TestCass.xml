@@ -35,7 +35,6 @@
         <collection property="CassParameter"
                     resultMap="com.example.demo.Mapper.CassParameterMapper"></collection>
     </resultMap>
-
     <insert id="addCass" parameterType="com.example.demo.Entity.TestCass"
             useGeneratedKeys="true" keyProperty="id">
             insert into testCass

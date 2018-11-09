@@ -27,20 +27,26 @@ public class TestCassService {
 
     public void addCass(TestCass TestCass){
         TestCassMapper.addCass(TestCass);
-        List<CassHerder> cl=TestCass.getHerderList();
-        for(CassHerder ch : cl){
-         ch.setCassid(TestCass.getId());
+        if (TestCass.getHerderList().size()!=0) {
+            List<CassHerder> cl = TestCass.getHerderList();
+            for (CassHerder ch : cl) {
+                ch.setCassid(TestCass.getId());
+            }
+            CassHerderMapper.addHerder(cl);
         }
-        List<CassParameter> cp=TestCass.getParameterList();
-        for(CassParameter ch : cp){
-            ch.setCassid(TestCass.getId());
+        if(TestCass.getParameterList().size()!=0){
+            List<CassParameter> cp=TestCass.getParameterList();
+            for(CassParameter ch : cp){
+                ch.setCassid(TestCass.getId());
+            }
+            CassParameterMapper.addParameter(cp);
         }
-        List<CassAssert> ca=TestCass.getAssertList();
-        for(CassAssert ch : ca){
-            ch.setCassid(TestCass.getId());
+        if(TestCass.getAssertList().size()!=0) {
+            List<CassAssert> ca = TestCass.getAssertList();
+            for (CassAssert ch : ca) {
+                ch.setCassid(TestCass.getId());
+            }
+            CassAssertMapper.addAssert(ca);
         }
-        CassHerderMapper.addHerder(cl);
-        CassParameterMapper.addParameter(cp);
-        CassAssertMapper.addAssert(ca);
  }
 }
