@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Mapper.TestCassMapper">
+    <resultMap id="addTestCass" type="com.example.demo.Entity.TestCass">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="cassname" column="cassname" javaType="java.lang.String"/>
+        <result property="cassdescribe" column="assdescribe" javaType="java.lang.String"/>
+        <result property="cassmodel" column="cassmodel" javaType="java.lang.Integer"/>
+        <result property="url" column="url" javaType="java.lang.String"/>
+        <result property="method" column="method" javaType="java.lang.Integer"/>
+        <result property="herder" column="herder" javaType="java.lang.Integer"/>
+        <result property="parameter" column="parameter" javaType="java.lang.Integer"/>
+        <result property="cassAssert" column="cassAssert" javaType="java.lang.Integer"/>
+    </resultMap>
+    <resultMap id="Herder" type="com.example.demo.Entity.CassHerder">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="name" column="name" javaType="java.lang.String"/>
+        <result property="paramter" column="paramter" javaType="java.lang.String"/>
+        <collection property="CassHerder"
+                    resultMap="com.example.demo.Mapper.CassHerderMapper"></collection>
+    </resultMap>
+    <resultMap id="Assert" type="com.example.demo.Entity.CassAssert">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="name" column="name" javaType="java.lang.String"/>
+        <result property="paramter" column="paramter" javaType="java.lang.String"/>
+        <collection property="CassAssert"
+                    resultMap="com.example.demo.Mapper.CassAssertMapper"></collection>
+    </resultMap>
+    <resultMap id="Parameter" type="com.example.demo.Entity.CassParameter">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="name" column="name" javaType="java.lang.String"/>
+        <result property="paramter" column="paramter" javaType="java.lang.String"/>
+        <collection property="CassParameter"
+                    resultMap="com.example.demo.Mapper.CassParameterMapper"></collection>
+    </resultMap>
+
+    <insert id="addCass" parameterType="com.example.demo.Entity.TestCass"
+            useGeneratedKeys="true" keyProperty="id">
+            insert into testCass
+            (cassname,cassdescribe,cassmodel,url,method,herder,parameter,cassAssert)
+            values(#{cassname},#{cassdescribe},#{cassmodel},#{url},#{method},#{herder},#{parameter},#{cassAssert})
+    </insert>
+</mapper>
