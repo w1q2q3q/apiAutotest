@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CassHerder {
-    int id;
-    String name;
-    String paramter;
-    int cassid;
+    int hid;
+    String hname;
+    String hparamter;
+    int hcassid;
     TestCass testCass;
 }

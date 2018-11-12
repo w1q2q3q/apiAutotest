@@ -14,50 +14,27 @@
         <result property="parameter" column="parameter" javaType="java.lang.Integer"/>
         <result property="cassAssert" column="cassAssert" javaType="java.lang.Integer"/>
         <result property="state" column="state" javaType="java.lang.Integer"/>
-        <collection property="herderList" column="id" ofType="com.example.demo.Entity.CassHerder">
-            <id property="id" column="id" />
-            <result property="name" column="name" />
-            <result property="paramter" column="paramter"/>
+        <collection property="herderList" ofType="com.example.demo.Entity.CassHerder">
+            <id property="hid" column="hid" />
+            <result property="hname" column="hname" />
+            <result property="hparamter" column="hparamter"/>
+            <result property="hcassid" column="hcassid"/>
         </collection>
-        <collection property="parameterList" column="id" ofType="com.example.demo.Entity.CassParameter">
-            <id property="id" column="id" />
-            <result property="name" column="name" />
-            <result property="paramter" column="paramter"/>
+        <collection property="parameterList" ofType="com.example.demo.Entity.CassParameter">
+            <id property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="pparamter" column="pparamter"/>
+            <result property="pcassid" column="pcassid"/>
         </collection>
-        <collection property="assertList" column="id" ofType="com.example.demo.Entity.CassAssert">
-            <id property="id" column="id" />
-            <result property="name" column="name" />
-            <result property="paramter" column="paramter" />
+        <collection property="assertList" ofType="com.example.demo.Entity.CassAssert">
+            <id property="aid" column="aid" />
+            <result property="aname" column="aname" />
+            <result property="aparamter" column="aparamter" />
+            <result property="acassid" column="acassid"/>
         </collection>
     </resultMap>
-    <!--<resultMap id="Herder" type="com.example.demo.Entity.CassHerder" extends="TestCass">-->
-        <!--<collection property="herderlist" javaType="ArrayList" ofType="com.example.demo.Entity.CassHerder">-->
-            <!--<id property="id" column="id" javaType="java.lang.Integer"/>-->
-            <!--<result property="name" column="name" javaType="java.lang.String"/>-->
-            <!--<result property="paramter" column="paramter" javaType="java.lang.String"/>-->
-        <!--</collection>-->
-    <!--</resultMap>-->
-    <!--<resultMap id="Herder" type="com.example.demo.Entity.CassHerder">-->
-        <!--<id property="id" column="id" javaType="java.lang.Integer"/>-->
-        <!--<result property="name" column="name" javaType="java.lang.String"/>-->
-        <!--<result property="paramter" column="paramter" javaType="java.lang.String"/>-->
-        <!--<collection property="CassHerder"-->
-                    <!--resultMap="com.example.demo.Mapper.CassHerderMapper"></collection>-->
-    <!--</resultMap>-->
-    <!--<resultMap id="Assert" type="com.example.demo.Entity.CassAssert">-->
-        <!--<id property="id" column="id" javaType="java.lang.Integer"/>-->
-        <!--<result property="name" column="name" javaType="java.lang.String"/>-->
-        <!--<result property="paramter" column="paramter" javaType="java.lang.String"/>-->
-        <!--<collection property="CassAssert"-->
-                    <!--resultMap="com.example.demo.Mapper.CassAssertMapper"></collection>-->
-    <!--</resultMap>-->
-    <!--<resultMap id="Parameter" type="com.example.demo.Entity.CassParameter">-->
-        <!--<id property="id" column="id" javaType="java.lang.Integer"/>-->
-        <!--<result property="name" column="name" javaType="java.lang.String"/>-->
-        <!--<result property="paramter" column="paramter" javaType="java.lang.String"/>-->
-        <!--<collection property="CassParameter"-->
-                    <!--resultMap="com.example.demo.Mapper.CassParameterMapper"></collection>-->
-    <!--</resultMap>-->
+
+
     <insert id="addCass" parameterType="com.example.demo.Entity.TestCass"
             useGeneratedKeys="true" keyProperty="id">
             insert into testCass
@@ -65,7 +42,7 @@
             values(#{cassname},#{cassdescribe},#{cassmodel},#{url},#{method},#{herder},#{parameter},#{cassAssert})
     </insert>
 
-    <select id="getCassList" parameterType="com.example.demo.Entity.TestCass" resultMap="TestCass">
-            select t.*, h.*, p.*, a.* from testcass t left join cassherder h on t.id = h.cassid left join cassparameter p on t.id = p.cassid left join cassassert a on t.id = a.cassid GROUP BY t.id
+    <select id="getCassList" resultMap="TestCass">
+            select t.*, h.*, p.*, a.* from testcass t left join cassherder h on t.id = h.hcassid left join cassparameter p on t.id = p.pcassid left join cassassert a on t.id = a.acassid order by t.id
     </select>
 </mapper>

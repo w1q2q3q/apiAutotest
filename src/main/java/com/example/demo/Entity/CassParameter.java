@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CassParameter {
-    int id;
-    String name;
-    String paramter;
-    int cassid;
+    int pid;
+    String pname;
+    String pparamter;
+    int pcassid;
     TestCass testCass;
 }

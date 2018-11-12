@@ -30,21 +30,21 @@ public class TestCassService {
         if (TestCass.getHerderList().size()!=0) {
             List<CassHerder> cl = TestCass.getHerderList();
             for (CassHerder ch : cl) {
-                ch.setCassid(TestCass.getId());
+                ch.setHcassid(TestCass.getId());
             }
             CassHerderMapper.addHerder(cl);
         }
         if(TestCass.getParameterList().size()!=0){
             List<CassParameter> cp=TestCass.getParameterList();
             for(CassParameter ch : cp){
-                ch.setCassid(TestCass.getId());
+                ch.setPcassid(TestCass.getId());
             }
             CassParameterMapper.addParameter(cp);
         }
         if(TestCass.getAssertList().size()!=0) {
             List<CassAssert> ca = TestCass.getAssertList();
             for (CassAssert ch : ca) {
-                ch.setCassid(TestCass.getId());
+                ch.setAcassid(TestCass.getId());
             }
             CassAssertMapper.addAssert(ca);
         }

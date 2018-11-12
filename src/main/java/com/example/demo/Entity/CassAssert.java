@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CassAssert {
-    int id;
-    String name;
-    String paramter;
-    int cassid;
+    int aid;
+    String aname;
+    String aparamter;
+    int acassid;
     TestCass testCass;
 }

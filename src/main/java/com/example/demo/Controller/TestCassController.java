@@ -18,7 +18,7 @@ public class TestCassController {
 
     @RequestMapping(value = "/getCassList",method = RequestMethod.GET)
     public List<TestCass> getCassList() {
-
+//        System.out.println(TestCassService.getCassList());
        return TestCassService.getCassList();
     }
     @RequestMapping(value = "/addCass",method = RequestMethod.POST)
