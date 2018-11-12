@@ -48,5 +48,10 @@ public class TestCassService {
             }
             CassAssertMapper.addAssert(ca);
         }
- }
+    }
+    public List<TestCass> getCassList(){
+
+        return TestCassMapper.getCassList();
+
+    }
 }

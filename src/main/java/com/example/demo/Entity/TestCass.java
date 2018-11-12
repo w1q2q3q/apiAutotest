@@ -29,4 +29,6 @@ public class TestCass {
     private int cassAssert;
     @JsonProperty(value = "AssertList")
     private List<CassAssert> assertList;
+    @JsonProperty(value = "state")
+    private int state;
 }

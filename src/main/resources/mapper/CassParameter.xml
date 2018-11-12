@@ -6,8 +6,8 @@
         <result property="name" column="name" javaType="java.lang.String"/>
         <result property="paramter" column="paramter" javaType="java.lang.String"/>
         <result property="cassid" column="cassid" javaType="java.lang.String"/>
-        <association property="addTestCass"
-                     resultMap="com.example.demo.Mapper.TestCassMapper"></association>
+        <!--<association property="TestCass"-->
+                     <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
     </resultMap>
     <!-- 批量新增的时候，注意接收的对象是一个列表，需要在动态拼接sql的时候遍历参数集合对象 -->
     <insert id="addParameter" parameterType="java.util.List">
