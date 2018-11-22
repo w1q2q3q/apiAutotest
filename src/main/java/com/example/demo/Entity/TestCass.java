@@ -21,6 +21,10 @@ public class TestCass {
     private int herder;
     @JsonProperty(value = "HerderList")
     private List<CassHerder> herderList;
+    @JsonProperty(value = "Cookies")
+    private int cookies;
+    @JsonProperty(value ="CookiesList")
+    private List<CassCookies> cookiesList;
     @JsonProperty(value = "Parameter")
     private int parameter;
     @JsonProperty(value = "ParameterList")

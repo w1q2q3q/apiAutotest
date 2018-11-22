@@ -11,6 +11,7 @@
         <result property="url" column="url" javaType="java.lang.String"/>
         <result property="method" column="method" javaType="java.lang.Integer"/>
         <result property="herder" column="herder" javaType="java.lang.Integer"/>
+        <result property="cookies" column="cookies" javaType="java.lang.Integer"/>
         <result property="parameter" column="parameter" javaType="java.lang.Integer"/>
         <result property="cassAssert" column="cassAssert" javaType="java.lang.Integer"/>
         <result property="state" column="state" javaType="java.lang.Integer"/>
@@ -19,6 +20,12 @@
             <result property="hname" column="hname" />
             <result property="hparamter" column="hparamter"/>
             <result property="hcassid" column="hcassid"/>
+        </collection>
+        <collection property="cookiesList" ofType="com.example.demo.Entity.CassCookies">
+        <id property="cid" column="cid" />
+        <result property="cname" column="cname" />
+        <result property="cparamter" column="cparamter" />
+        <result property="ccassid" column="ccassid"/>
         </collection>
         <collection property="parameterList" ofType="com.example.demo.Entity.CassParameter">
             <id property="pid" column="pid" />
@@ -38,11 +45,11 @@
     <insert id="addCass" parameterType="com.example.demo.Entity.TestCass"
             useGeneratedKeys="true" keyProperty="id">
             insert into testCass
-            (cassname,cassdescribe,cassmodel,url,method,herder,parameter,cassAssert)
-            values(#{cassname},#{cassdescribe},#{cassmodel},#{url},#{method},#{herder},#{parameter},#{cassAssert})
+            (cassname,cassdescribe,cassmodel,url,method,herder,cookies,parameter,cassAssert)
+            values(#{cassname},#{cassdescribe},#{cassmodel},#{url},#{method},#{herder},#{cookies},#{parameter},#{cassAssert})
     </insert>
 
     <select id="getCassList" resultMap="TestCass">
-            select t.*, h.*, p.*, a.* from testcass t left join cassherder h on t.id = h.hcassid left join cassparameter p on t.id = p.pcassid left join cassassert a on t.id = a.acassid order by t.id
+            select t.*, h.*, p.*, a.* ,c.* from testcass t left join cassherder h on t.id = h.hcassid left join cassparameter p on t.id = p.pcassid left join cassassert a on t.id = a.acassid left join casscookies c on t.id = c.ccassid order by t.id
     </select>
 </mapper>

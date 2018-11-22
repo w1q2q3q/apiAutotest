@@ -1,17 +1,11 @@
 package com.example.demo.Service;
 
-import com.example.demo.Entity.CassAssert;
-import com.example.demo.Entity.CassHerder;
-import com.example.demo.Entity.CassParameter;
-import com.example.demo.Entity.TestCass;
-import com.example.demo.Mapper.CassAssertMapper;
-import com.example.demo.Mapper.CassHerderMapper;
-import com.example.demo.Mapper.CassParameterMapper;
-import com.example.demo.Mapper.TestCassMapper;
+import com.example.demo.Dao.TestCassDao;
+import com.example.demo.Entity.*;
+import com.example.demo.Mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +18,10 @@ public class TestCassService {
      private CassParameterMapper CassParameterMapper;
     @Autowired
      private CassAssertMapper CassAssertMapper;
+    @Autowired
+     private CassCookiesMapper CassCookiesMapper;
+    @Autowired
+     private TestCassDao testCassDao;
 
     public void addCass(TestCass TestCass){
         TestCassMapper.addCass(TestCass);
@@ -48,10 +46,23 @@ public class TestCassService {
             }
             CassAssertMapper.addAssert(ca);
         }
+        if(TestCass.getCookiesList().size()!=0) {
+            List<CassCookies> ca = TestCass.getCookiesList();
+            for (CassCookies cc : ca) {
+                cc.setCcassid(TestCass.getId());
+            }
+            CassCookiesMapper.addCookies(ca);
+        }
     }
+
     public List<TestCass> getCassList(){
 
         return TestCassMapper.getCassList();
 
+    }
+
+    public CassReport runCass(TestCass testCass){
+
+        return testCassDao.runcass(testCass);
     }
 }

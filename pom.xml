@@ -77,6 +77,28 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.rest-assured</groupId>-->
+            <!--<artifactId>spring-web-test-client</artifactId>-->
+            <!--<version>3.2.0</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>io.rest-assured</groupId>-->
+            <!--<artifactId>rest-assured</artifactId>-->
+        <!--</dependency>-->
 
     </dependencies>
 

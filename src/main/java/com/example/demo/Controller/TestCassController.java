@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Entity.CassReport;
 import com.example.demo.Entity.TestCass;
 import com.example.demo.Service.TestCassService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,12 @@ public class TestCassController {
         TestCassService .addCass(testCass);
         System.out.println("csss");
         System.out.println("sscss");
+    }
+
+    @RequestMapping(value ="/runCass",method = RequestMethod.POST)
+    public CassReport runCass(@RequestBody TestCass testCass){
+
+        return TestCassService.runCass(testCass);
     }
 
 

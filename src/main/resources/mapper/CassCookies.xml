@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.Mapper.CassParameterMapper">
-    <resultMap id="CassParameter" type="com.example.demo.Entity.CassParameter">
-        <id property="pid" column="pid" javaType="java.lang.Integer"/>
-        <result property="pname" column="pname" javaType="java.lang.String"/>
-        <result property="pparamter" column="pparamter" javaType="java.lang.String"/>
-        <result property="pcassid" column="pcassid" javaType="java.lang.String"/>
+<mapper namespace="com.example.demo.Mapper.CassCookiesMapper">
+    <resultMap id="CassCookies" type="com.example.demo.Entity.CassCookies">
+        <id property="cid" column="cid" javaType="java.lang.Integer"/>
+        <result property="cname" column="cname" javaType="java.lang.String"/>
+        <result property="cparamter" column="cparamter" javaType="java.lang.String"/>
+        <result property="ccassid" column="ccassid" javaType="java.lang.String"/>
         <!--<association property="TestCass"-->
                      <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
     </resultMap>
     <!-- 批量新增的时候，注意接收的对象是一个列表，需要在动态拼接sql的时候遍历参数集合对象 -->
-    <insert id="addParameter" parameterType="java.util.List">
-        Insert into cassparameter (pname,pparamter,pcassid) values
+    <insert id="addCookies" parameterType="java.util.List">
+        Insert into casscookies (cname,cparamter,ccassid) values
         <!-- 注意foreach的语法,集合直接写list字符串，用item表示当前遍历的对象，结果集合通过使用逗号分隔使用separator属性 -->
         <foreach collection="list" item="item" separator=",">
-            (#{item.pname},#{item.pparamter},#{item.pcassid})
+            (#{item.cname},#{item.cparamter},#{item.ccassid})
         </foreach>
     </insert>
 
-    <insert id="addOneHerder" parameterType="com.example.demo.Entity.CassParameter">
-        Insert into cassparameter
+    <insert id="addOneAssert" parameterType="com.example.demo.Entity.CassAssert">
+        Insert into cassassert
         (name,paramter,cassid) values(#{item.name},#{item.paramter},#{item.cassid})
     </insert>
 
