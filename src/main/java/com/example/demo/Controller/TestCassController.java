@@ -4,10 +4,7 @@ import com.example.demo.Entity.CassReport;
 import com.example.demo.Entity.TestCass;
 import com.example.demo.Service.TestCassService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,7 +33,11 @@ public class TestCassController {
         return TestCassService.runCass(testCass);
     }
 
+    @RequestMapping(value ="/editCass/{id}",method = RequestMethod.GET)
+    public TestCass editCass(@PathVariable(name = "id") int id){
 
+        return TestCassService.getCass(id);
+    }
 
 
 

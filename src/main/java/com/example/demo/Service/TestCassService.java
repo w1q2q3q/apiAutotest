@@ -61,6 +61,10 @@ public class TestCassService {
 
     }
 
+    public TestCass getCass(int id){
+        return TestCassMapper.getCass(id);
+    }
+
     public CassReport runCass(TestCass testCass){
 
         return testCassDao.runcass(testCass);

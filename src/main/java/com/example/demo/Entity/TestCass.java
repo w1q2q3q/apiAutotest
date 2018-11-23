@@ -29,7 +29,7 @@ public class TestCass {
     private int parameter;
     @JsonProperty(value = "ParameterList")
     private List<CassParameter> parameterList;
-    @JsonProperty(value = "CassAssertMapper")
+    @JsonProperty(value = "CassAssert")
     private int cassAssert;
     @JsonProperty(value = "AssertList")
     private List<CassAssert> assertList;

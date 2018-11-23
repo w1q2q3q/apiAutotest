@@ -14,4 +14,5 @@ public interface TestCassMapper {
 
   public List<TestCass> getCassList();
 
+  public TestCass getCass(int id);
 }

@@ -52,4 +52,8 @@
     <select id="getCassList" resultMap="TestCass">
             select t.*, h.*, p.*, a.* ,c.* from testcass t left join cassherder h on t.id = h.hcassid left join cassparameter p on t.id = p.pcassid left join cassassert a on t.id = a.acassid left join casscookies c on t.id = c.ccassid order by t.id
     </select>
+
+    <select id="getCass" resultMap="TestCass">
+            select t.*, h.*, p.*, a.* ,c.* from testcass t left join cassherder h on t.id = h.hcassid left join cassparameter p on t.id = p.pcassid left join cassassert a on t.id = a.acassid left join casscookies c on t.id = c.ccassid where t.id = #{id}
+    </select>
 </mapper>
