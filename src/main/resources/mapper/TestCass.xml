@@ -22,10 +22,10 @@
             <result property="hcassid" column="hcassid"/>
         </collection>
         <collection property="cookiesList" ofType="com.example.demo.Entity.CassCookies">
-        <id property="cid" column="cid" />
-        <result property="cname" column="cname" />
-        <result property="cparamter" column="cparamter" />
-        <result property="ccassid" column="ccassid"/>
+            <id property="cid" column="cid" />
+            <result property="cname" column="cname" />
+            <result property="cparamter" column="cparamter" />
+            <result property="ccassid" column="ccassid"/>
         </collection>
         <collection property="parameterList" ofType="com.example.demo.Entity.CassParameter">
             <id property="pid" column="pid" />
@@ -34,10 +34,12 @@
             <result property="pcassid" column="pcassid"/>
         </collection>
         <collection property="assertList" ofType="com.example.demo.Entity.CassAssert">
-            <id property="aid" column="aid" />
-            <result property="aname" column="aname" />
-            <result property="aparamter" column="aparamter" />
-            <result property="acassid" column="acassid"/>
+            <id property="aid" column="aid" javaType="java.lang.Integer"/>
+            <result property="assertData" column="assertData" javaType="java.lang.Integer"/>
+            <result property="aname" column="aname" javaType="java.lang.String"/>
+            <result property="amethod" column="amethod" javaType="java.lang.Integer"/>
+            <result property="repsonedate" column="repsonedate" javaType="java.lang.String"/>
+            <result property="acassid" column="acassid" javaType="java.lang.String"/>
         </collection>
     </resultMap>
 

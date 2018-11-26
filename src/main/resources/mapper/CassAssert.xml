@@ -3,8 +3,10 @@
 <mapper namespace="com.example.demo.Mapper.CassAssertMapper">
     <resultMap id="CassAssert" type="com.example.demo.Entity.CassAssert">
         <id property="aid" column="aid" javaType="java.lang.Integer"/>
+        <result property="requestdate" column="assertData" javaType="java.lang.Integer"/>
         <result property="aname" column="aname" javaType="java.lang.String"/>
-        <result property="aparamter" column="aparamter" javaType="java.lang.String"/>
+        <result property="amethod" column="amethod" javaType="java.lang.Integer"/>
+        <result property="repsonedate" column="repsonedate" javaType="java.lang.String"/>
         <result property="acassid" column="acassid" javaType="java.lang.String"/>
         <!--<association property="TestCass"-->
                      <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
