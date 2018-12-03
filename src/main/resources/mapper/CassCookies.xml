@@ -5,7 +5,7 @@
         <id property="cid" column="cid" javaType="java.lang.Integer"/>
         <result property="cname" column="cname" javaType="java.lang.String"/>
         <result property="cparamter" column="cparamter" javaType="java.lang.String"/>
-        <result property="ccassid" column="ccassid" javaType="java.lang.String"/>
+        <result property="ccassid" column="ccassid" javaType="java.lang.Integer"/>
         <!--<association property="TestCass"-->
                      <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
     </resultMap>

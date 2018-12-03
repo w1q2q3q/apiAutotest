@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class CassAssert {
     int aid;
-    private int requestdate;
-    private String aname;
-    private int amethod;
-    private String repsonedate;
+    private int responsetype;
+    private String assertparameter;
+    private int assertmethod;
+    private String responsedate;
     int acassid;
     TestCass testCass;
 }

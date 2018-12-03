@@ -5,7 +5,7 @@
         <id property="pid" column="pid" javaType="java.lang.Integer"/>
         <result property="pname" column="pname" javaType="java.lang.String"/>
         <result property="pparamter" column="pparamter" javaType="java.lang.String"/>
-        <result property="pcassid" column="pcassid" javaType="java.lang.String"/>
+        <result property="pcassid" column="pcassid" javaType="java.lang.Integer"/>
         <!--<association property="TestCass"-->
                      <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
     </resultMap>

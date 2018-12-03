@@ -5,7 +5,7 @@
         <id property="hid" column="hid" javaType="java.lang.Integer"/>
         <result property="hname" column="hname" javaType="java.lang.String"/>
         <result property="hparamter" column="hparamter" javaType="java.lang.String"/>
-        <result property="hcassid" column="hcassid" javaType="java.lang.String"/>
+        <result property="hcassid" column="hcassid" javaType="java.lang.Integer"/>
     </resultMap>
     <!-- 批量新增的时候，注意接收的对象是一个列表，需要在动态拼接sql的时候遍历参数集合对象 -->
     <insert id="addHerder" parameterType="java.util.List">

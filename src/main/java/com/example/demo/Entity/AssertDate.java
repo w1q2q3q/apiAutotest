@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class AssertDate {
-   private int requestdate;
-   private String aname;
-   private int amethod;
-   private  String repsonedate;
+   private int responsetype;
+   private String assertparameter;
+   private int assertmethod;
+   private  String response;
    private int result;
 }
