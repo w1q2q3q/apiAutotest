@@ -1,6 +1,6 @@
 package com.example.demo.Mapper;
 
-import com.example.demo.Entity.CassHerder;
+import com.example.demo.Entity.CaseAssert;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface CassHerderMapper {
+public interface CaseAssertMapper {
 
-    public void addHerder(List<CassHerder> CassHerder);
+    public void addAssert(List<CaseAssert> CaseAssert);
 
 }

@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Mapper.TestCaseMapper">
+    <resultMap id="TestCase" type="com.example.demo.Entity.TestCase">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="casename" column="casename" javaType="java.lang.String"/>
+        <result property="casedescribe" column="casedescribe" javaType="java.lang.String"/>
+        <result property="casemodel" column="casemodel" javaType="java.lang.Integer"/>
+        <result property="url" column="url" javaType="java.lang.String"/>
+        <result property="method" column="method" javaType="java.lang.Integer"/>
+        <result property="herder" column="herder" javaType="java.lang.Integer"/>
+        <result property="cookies" column="cookies" javaType="java.lang.Integer"/>
+        <result property="parameter" column="parameter" javaType="java.lang.Integer"/>
+        <result property="caseAssert" column="caseAssert" javaType="java.lang.Integer"/>
+        <result property="state" column="state" javaType="java.lang.Integer"/>
+        <collection property="herderList" ofType="com.example.demo.Entity.CaseHerder">
+            <id property="hid" column="hid" />
+            <result property="hname" column="hname" />
+            <result property="hparamter" column="hparamter"/>
+            <result property="hcaseid" column="hcaseid"/>
+        </collection>
+        <collection property="cookiesList" ofType="com.example.demo.Entity.CaseCookies">
+            <id property="cid" column="cid" />
+            <result property="cname" column="cname" />
+            <result property="cparamter" column="cparamter" />
+            <result property="ccaseid" column="ccaseid"/>
+        </collection>
+        <collection property="parameterList" ofType="com.example.demo.Entity.CaseParameter">
+            <id property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="pparamter" column="pparamter"/>
+            <result property="pcaseid" column="pcaseid"/>
+        </collection>
+        <collection property="assertList" ofType="com.example.demo.Entity.CaseAssert">
+            <id property="aid" column="aid"/>
+            <result property="responsetype" column="responsetype"/>
+            <result property="assertparameter" column="assertparameter" />
+            <result property="assertmethod" column="assertmethod" />
+            <result property="acaseid" column="acaseid"/>
+        </collection>
+    </resultMap>
+
+
+    <insert id="addCase" parameterType="com.example.demo.Entity.TestCase"
+            useGeneratedKeys="true" keyProperty="id">
+            insert into testCase
+            (casename,casedescribe,casemodel,url,method,herder,cookies,parameter,caseAssert)
+            values(#{casename},#{casedescribe},#{casemodel},#{url},#{method},#{herder},#{cookies},#{parameter},#{caseAssert})
+    </insert>
+
+    <select id="getCaseList" resultMap="TestCase">
+            select t.*, h.*, p.*, a.* ,c.* from testcase t left join caseherder h on t.id = h.hcaseid left join caseparameter p on t.id = p.pcaseid left join caseassert a on t.id = a.acaseid left join casecookies c on t.id = c.ccaseid order by t.id
+    </select>
+
+    <select id="getCase" resultMap="TestCase">
+            select t.*, h.*, p.*, a.* ,c.* from testcase t left join caseherder h on t.id = h.hcaseid left join caseparameter p on t.id = p.pcaseid left join caseassert a on t.id = a.acaseid left join casecookies c on t.id = c.ccaseid where t.id = #{id}
+    </select>
+</mapper>

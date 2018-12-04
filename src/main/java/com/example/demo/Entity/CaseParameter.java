@@ -3,10 +3,10 @@ package com.example.demo.Entity;
 import lombok.Data;
 
 @Data
-public class CassParameter {
+public class CaseParameter {
     int pid;
     String pname;
     String pparamter;
-    int pcassid;
-    TestCass testCass;
+    int pcaseid;
+    TestCase testCase;
 }

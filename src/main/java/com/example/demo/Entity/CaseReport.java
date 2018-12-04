@@ -5,10 +5,10 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CassReport {
+public class CaseReport {
     int id;
     int code;
-    int cassid;
-    String Cassrequest;
+    int caseid;
+    String Caserequest;
     List<AssertDate> AssertList;
 }
