@@ -8,7 +8,7 @@ public class CassAssert {
     private int responsetype;
     private String assertparameter;
     private int assertmethod;
-    private String responsedate;
+//    private String responsedate;
     int acassid;
     TestCass testCass;
 }

@@ -7,6 +7,7 @@ public class AssertDate {
    private int responsetype;
    private String assertparameter;
    private int assertmethod;
-   private  String response;
+   private String response;
+   private String assertresult;
    private int result;
 }

@@ -35,10 +35,9 @@
         </collection>
         <collection property="assertList" ofType="com.example.demo.Entity.CassAssert">
             <id property="aid" column="aid"/>
-            <result property="responsetype" column="assertData"/>
-            <result property="assertparameter" column="aname" />
-            <result property="assertmethod" column="amethod" />
-            <result property="repsonedate" column="repsonedate" />
+            <result property="responsetype" column="responsetype"/>
+            <result property="assertparameter" column="assertparameter" />
+            <result property="assertmethod" column="assertmethod" />
             <result property="acassid" column="acassid"/>
         </collection>
     </resultMap>

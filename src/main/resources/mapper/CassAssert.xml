@@ -3,20 +3,20 @@
 <mapper namespace="com.example.demo.Mapper.CassAssertMapper">
     <resultMap id="CassAssert" type="com.example.demo.Entity.CassAssert">
         <id property="aid" column="aid" javaType="java.lang.Integer"/>
-        <result property="responsetype" column="assertData" javaType="java.lang.Integer"/>
-        <result property="assertparameter" column="aname" javaType="java.lang.String"/>
-        <result property="assertmethod" column="amethod" javaType="java.lang.Integer"/>
-        <result property="responsedate" column="repsonedate" javaType="java.lang.String"/>
+        <result property="responsetype" column="responsetype" javaType="java.lang.Integer"/>
+        <result property="assertparameter" column="assertparameter" javaType="java.lang.String"/>
+        <result property="assertmethod" column="assertmethod" javaType="java.lang.Integer"/>
+        <!--<result property="responsedate" column="repsonedate" javaType="java.lang.String"/>-->
         <result property="acassid" column="acassid" javaType="java.lang.Integer"/>
         <!--<association property="TestCass"-->
                      <!--resultMap="com.example.demo.Mapper.TestCassMapper"></association>-->
     </resultMap>
     <!-- 批量新增的时候，注意接收的对象是一个列表，需要在动态拼接sql的时候遍历参数集合对象 -->
     <insert id="addAssert" parameterType="java.util.List">
-        Insert into cassassert (responsetype,assertparameter,assertmethod,repsonedate,acassid) values
+        Insert into cassassert (responsetype,assertparameter,assertmethod,acassid) values
         <!-- 注意foreach的语法,集合直接写list字符串，用item表示当前遍历的对象，结果集合通过使用逗号分隔使用separator属性 -->
         <foreach collection="list" item="item" separator=",">
-            (#{item.responsetype},#{item.assertparameter},#{item.assertmethod},#{item.repsonedate},#{item.acassid})
+            (#{item.responsetype},#{item.assertparameter},#{item.assertmethod},#{item.acassid})
         </foreach>
     </insert>
 
