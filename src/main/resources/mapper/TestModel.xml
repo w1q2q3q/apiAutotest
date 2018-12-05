@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Mapper.TestModelMapper">
+    <resultMap id="TestModel" type="com.example.demo.Entity.TestModel">
+        <id property="id" column="id" javaType="java.lang.Integer"/>
+        <result property="modelname" column="modelname" javaType="java.lang.String"/>
+        <result property="modeldescribe" column="modeldescribe" javaType="java.lang.String"/>
+        <result property="projectid" column="projectid" javaType="java.lang.Integer"/>
+    </resultMap>
+    <!-- 批量新增的时候，注意接收的对象是一个列表，需要在动态拼接sql的时候遍历参数集合对象 -->
+    <!--<insert id="addProject" parameterType="java.util.List">-->
+    <!--Insert into caseassert (responsetype,assertparameter,assertmethod,acaseid) values-->
+    <!--&lt;!&ndash; 注意foreach的语法,集合直接写list字符串，用item表示当前遍历的对象，结果集合通过使用逗号分隔使用separator属性 &ndash;&gt;-->
+    <!--<foreach collection="list" item="item" separator=",">-->
+    <!--(#{item.responsetype},#{item.assertparameter},#{item.assertmethod},#{item.acaseid})-->
+    <!--</foreach>-->
+    <!--</insert>-->
+
+    <insert id="addModel" parameterType="com.example.demo.Entity.TestModel">
+        Insert into testmodel
+        (modelname,modeldescribe,projectid) values(#{modelname},#{modeldescribe},#{projectid})
+    </insert>
+
+    <select id="getModel" resultMap="TestModel">
+        select * from testmodel where projectid = #{projectid}
+    </select>
+
+</mapper>

@@ -21,10 +21,7 @@ public class TestCaseController {
     }
     @RequestMapping(value = "/addCase",method = RequestMethod.POST)
     public void addCase(@RequestBody TestCase testCase){
-        System.out.println(testCase);
         TestCaseService.addCase(testCase);
-        System.out.println("csss");
-        System.out.println("sscss");
     }
 
     @RequestMapping(value ="/runCase",method = RequestMethod.POST)
