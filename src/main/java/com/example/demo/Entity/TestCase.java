@@ -35,4 +35,5 @@ public class TestCase {
     private List<CaseAssert> assertList;
     @JsonProperty(value = "state")
     private int state;
+    private int modelid;
 }

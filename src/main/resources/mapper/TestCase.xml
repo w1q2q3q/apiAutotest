@@ -15,6 +15,7 @@
         <result property="parameter" column="parameter" javaType="java.lang.Integer"/>
         <result property="caseAssert" column="caseAssert" javaType="java.lang.Integer"/>
         <result property="state" column="state" javaType="java.lang.Integer"/>
+        <result property="modelid" column="modelid" javaType="java.lang.Integer"/>
         <collection property="herderList" ofType="com.example.demo.Entity.CaseHerder">
             <id property="hid" column="hid" />
             <result property="hname" column="hname" />
@@ -46,8 +47,8 @@
     <insert id="addCase" parameterType="com.example.demo.Entity.TestCase"
             useGeneratedKeys="true" keyProperty="id">
             insert into testCase
-            (casename,casedescribe,casemodel,url,method,herder,cookies,parameter,caseAssert)
-            values(#{casename},#{casedescribe},#{casemodel},#{url},#{method},#{herder},#{cookies},#{parameter},#{caseAssert})
+            (casename,casedescribe,casemodel,url,method,herder,cookies,parameter,caseAssert,modelid)
+            values(#{casename},#{casedescribe},#{casemodel},#{url},#{method},#{herder},#{cookies},#{parameter},#{caseAssert},#{modelid})
     </insert>
 
     <select id="getCaseList" resultMap="TestCase">
