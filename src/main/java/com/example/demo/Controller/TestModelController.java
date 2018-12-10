@@ -23,4 +23,12 @@ public class TestModelController {
     public List<TestModel> getModel(@PathVariable(name="projectid") int projectid){
         return testModelService.getModel(projectid);
     }
+
+    @RequestMapping(value = "/getAllModel",method = RequestMethod.GET)
+    public List<TestModel> getAllModel(){
+        return testModelService.getAllModel();
+    }
+
+
+
 }

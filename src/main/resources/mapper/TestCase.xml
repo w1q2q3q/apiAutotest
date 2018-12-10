@@ -55,7 +55,15 @@
             select t.*, h.*, p.*, a.* ,c.* from testcase t left join caseherder h on t.id = h.hcaseid left join caseparameter p on t.id = p.pcaseid left join caseassert a on t.id = a.acaseid left join casecookies c on t.id = c.ccaseid order by t.id
     </select>
 
+    <select id="getCaseListByCaseModel" resultMap="TestCase">
+            select t.*, h.*, p.*, a.* ,c.* from testcase t left join caseherder h on t.id = h.hcaseid left join caseparameter p on t.id = p.pcaseid left join caseassert a on t.id = a.acaseid left join casecookies c on t.id = c.ccaseid where t.casemodel = #{casemodel} order by t.id
+    </select>
+
     <select id="getCase" resultMap="TestCase">
             select t.*, h.*, p.*, a.* ,c.* from testcase t left join caseherder h on t.id = h.hcaseid left join caseparameter p on t.id = p.pcaseid left join caseassert a on t.id = a.acaseid left join casecookies c on t.id = c.ccaseid where t.id = #{id}
     </select>
+    
+    <update id="runCasestate" parameterType="com.example.demo.Entity.TestCase">
+         update testcase set state =#{state} where id =#{id}
+    </update>
 </mapper>

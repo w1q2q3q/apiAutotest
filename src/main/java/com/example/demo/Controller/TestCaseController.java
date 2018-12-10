@@ -36,6 +36,10 @@ public class TestCaseController {
         return TestCaseService.getCase(id);
     }
 
+    @RequestMapping(value ="/getCaseListByCaseModel/{casemodel}",method = RequestMethod.GET)
+    public List<TestCase> getCaseListByCaseModel(@PathVariable(name = "casemodel") int casemodel){
+        return TestCaseService.getCaseListByCaseModel(casemodel);
+    }
 
 
 

@@ -11,6 +11,7 @@ import java.util.List;
 public interface TestModelMapper {
     public void addModel(TestModel testModel);
     public List<TestModel> getModel(int projectid);
+    public List<TestModel> getAllModel();
 
 
 

@@ -69,4 +69,8 @@ public class TestCaseService {
 
         return testCaseDao.runcase(testCase);
     }
+
+    public List<TestCase> getCaseListByCaseModel(int casemodel){
+        return TestCaseMapper.getCaseListByCaseModel(casemodel);
+    }
 }
