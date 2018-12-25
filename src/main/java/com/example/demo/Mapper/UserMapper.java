@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface UserMapper {
-    @Select("SELECT * FROM Person")
+    @Select("SELECT * FROM person")
     List<Person> selectAllUser();
 
 
